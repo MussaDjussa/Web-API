@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication4;
 
 namespace WebApplication4.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20220511184119_Initialize2")]
+    partial class Initialize2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -177,9 +179,6 @@ namespace WebApplication4.Migrations
 
                     b.Property<int>("NumberComp")
                         .HasColumnType("int");
-
-                    b.Property<string>("PhotoPath")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Processor")
                         .HasColumnType("nvarchar(max)");
