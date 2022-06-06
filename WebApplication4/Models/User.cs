@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApplication4.Models
 {
-    public class Users
+    public class User
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -19,9 +19,7 @@ namespace WebApplication4.Models
         public int RoleId { get; set; }
         public Role Role { get; set; }
 
-        public List<FormCheck> FormChecks { get; set; }
-
-        public List<Booking> Bookings { get; set; }
+        public List<Appointment> Appointments { get; set; }
 
     }
 }

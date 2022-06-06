@@ -8,6 +8,6 @@ namespace WebApplication4.Models
 
         public string Name { get; set; }
 
-        public List<Users> Users { get; set; }
+        public List<User> Users { get; set; }
     }
 }

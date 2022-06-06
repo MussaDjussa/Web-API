@@ -21,37 +21,37 @@ namespace WebApplication4.Controllers
 
         // GET: api/<UsersController>
         [HttpGet]
-        public IEnumerable<Users> Get()
+        public IEnumerable<User> Get()
         {
-            return _context.Users;
+            return  _context.Users;
         }
 
         // GET api/<UsersController>/5
         [HttpGet("{id}", Name = "Get")]
-        public Users Get(int id)
+        public User Get(int id)
         {
             return _context.Users.SingleOrDefault(q => q.ID == id);
         }
 
         // POST api/<UsersController>
         [HttpPost]
-        public async Task<ActionResult<Users>> Post([FromBody] Users users)
+        public async Task<ActionResult<User>> Post([FromBody] User user)
         {
-            var getExistsUser = _context.Users.FirstOrDefault(q=>q.Login == users.Login
-                                                     && q.Password == users.Password);
+            var getExistsUser = _context.Users.FirstOrDefault(q=>q.Login == user.Login
+                                                     && q.Password == user.Password);
 
             if(getExistsUser != null)
             {
-                return BadRequest(users);
+                return BadRequest(user);
             }
-            _context.Users.Add(users);
+            _context.Users.Add(user);
             await _context.SaveChangesAsync();
-            return Ok(users);
+            return Ok(user);
         }
 
         // PUT api/<UsersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Users users)
+        [HttpPut]
+        public void Put([FromBody] User users)
         {
             _context.Users.Update(users);
             _context.SaveChanges();
